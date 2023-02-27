@@ -7,6 +7,7 @@
  * later version: http://www.gnu.org/licenses/gpl-2.0.txt
  */
 
+import * as Sentry from '@sentry/node';
 import * as React from 'react';
 
 import RecordingList from '../components/list/RecordingList.js';
@@ -213,6 +214,8 @@ const ArtistIndex = ({
   showingVariousArtistsOnly,
   wikipediaExtract,
 }: Props): React.Element<typeof ArtistLayout> => {
+  Sentry.captureException(new Error('test'));
+
   const $c = React.useContext(SanitizedCatalystContext);
   const existingRecordings = recordings?.length ? recordings : null;
   const existingReleaseGroups = releaseGroups?.length ? releaseGroups : null;
