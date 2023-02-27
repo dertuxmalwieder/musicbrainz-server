@@ -41,7 +41,7 @@ export async function getResponse(requestBody, context) {
   }
 
   Sentry.setTag('component', requestBody.component);
-  Sentry.setTag('url', context.req.url);
+  Sentry.setTag('url', context.req.uri);
 
   /*
    * Set the current translations to be used for this request based on the
